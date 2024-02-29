@@ -179,3 +179,44 @@ $$
 \end{aligned}
 \end{equation}
 $$
+
+## ダイナミックプライシング
+
+$\boldsymbol{S}:\\{ M_1,M_2,\xi \\}$ $p^{(n)}(\boldsymbol{S})$ $V^{r(n,k)}_0,\space \text{for} \space r=1,2$
+$V^{r(n,k)}_0$ 
+
+$$
+s^{n,k}_r\(\boldsymbol{S}\)=\frac{exp(\beta_r - \alpha_r p^{(n)}\(\boldsymbol{S}\)+\xi)} {exp(V^{r(n,k)} _0\(\boldsymbol{S}\)) + exp(\beta_r + \alpha_r p^{(n)} \( \boldsymbol{S} \) +\xi)},\space r=1,2
+$$
+
+$M^{' \( n,k \) _r } = M _r \[ 1- s^{(n,k)} _r \( \boldsymbol{S}  \) \] \space \text{for} \space r=1,2$
+
+$$
+V^{r(n,k)}_0 \( \boldsymbol{S} \) = \delta_c \int log \[exp(V^{r(n,k+1)}_0 \( M^{'(n,k)} _1,M^{'(n,k)} _2, \xi^{'} \)) + exp(\beta_r + \alpha_r p\(M^{'(n,k)} _1,M^{'(n,k)} _2, \xi^{'} \)+\xi^{'})  \]dF\(\xi^{'}|\xi \),\space r=1,2
+$$
+
+$|V^{r(n,k+1)}_0 \( \boldsymbol{S} \)-V^{r(n,k)}_0 \( \boldsymbol{S} \)|<\epsilon$
+
+$$
+V^{(n)}_f \(\boldsymbol{S} \) = \pi \( \boldsymbol{S} , p^{(n)}\( \boldsymbol{S} \) \) + \delta_f \int V^{(n)} _f \(\boldsymbol{S^{'}} \) f\( \xi^{'}|\xi \)d\( \xi^{'} \)
+$$
+
+$$
+\pi \( \boldsymbol{S}, p^{(n)} \( \boldsymbol{S} \) \) = Q \( \boldsymbol{S} \) \( p^{(n)} \( \boldsymbol{S} \) -c \)
+$$
+
+$$
+Q\( \boldsymbol{S} \) = \sum^{R=2}_{r=1} M^{(n,k+1)} _r s^{(n,k+1)} _r \( \boldsymbol{S} \)
+$$
+
+$$
+s^{(n,k+1) _r} \( \boldsymbol{S} \) = \frac{exp(\beta_r - \alpha_r p^{(n)}\(\boldsymbol{S}\)+\xi)} {exp(V^{r(n,k)} _0\(\boldsymbol{S}\)) + exp(\beta_r + \alpha_r p^{(n)} \( \boldsymbol{S} \) +\xi)},\space r=1,2
+$$
+
+$$
+p^{(n+1)} \boldsymbol{S} = argmax_{p>0} \[ \pi \( \boldsymbol{S},p \) + \delta_f \int V^{(n)} \( \boldsymbol{S^{'}} \)f \( xi^{'}|\xi \) d(\xi^{'}) \]
+$$
+
+$$
+|p^{(n+1)}\( \boldsymbol{S} \) - p^{(n)} \( \boldsymbol{S} \)| < \epsilon
+$$
