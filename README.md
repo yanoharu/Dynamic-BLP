@@ -3,6 +3,10 @@
 ## 動学BLP
 動学BLPとはタイプ $r$ の消費者が、 $t$ 期に財 $j \in J$ を購入する意思決定をモデル化したものです。[Berry,Levinshon,Pakes(1995)](https://www.semanticscholar.org/paper/Automobile-Prices-in-Market-Equilibrium-Berry-Levinsohn/92844164f71bb52d02dbd8f00bf49765cf1e7815)は静学需要推定のモデル、いわゆる"BLP"モデルと呼ばれるものを[Nair(2007)](https://link.springer.com/article/10.1007/s11129-007-9026-4)や[Gowrisankaran,Rysman(2009)](https://www.nber.org/papers/w14737)は動学モデルへと応用しています。動学BLPモデルが想定する状況では、消費者は先読み行動(Forward Looking Behavior)をとります。例えば財がカメラやゲーム機の場合、消費者は価格が下がるのを待つためにその財の購入タイミングを遅らせます。動学BLPではそのような消費者の意思決定を扱います。さらに消費者をセグメント $r \in R$ で分けることで消費者がセグメントごとで異なる価格感応度や選好をもつことを表現できます。つまり財に対して強い選好をもつ消費者と、財に対して弱い選好をもつ消費者のパラメータをそれぞれ時系列集計データから推定することができます。
 
+* [J=1,R=2,NFXP](https://github.com/yanoharu/Dynamic-BLP/blob/main/DynamicBLP_SingleChoiceSingleSegment.ipynb) 
+* [J=2,R=2,MPEC](https://github.com/yanoharu/Dynamic-BLP/blob/main/DynamicBLP_DoubleChoiceSingleSegment_MPEC.ipynb)
+* J=1,R=2,MPEC:未完成
+* J=2,R=2,MPEC:未完成
 ## モデル
 
 消費者の買い控えする時の効用はベルマン方程式を用いて以下の様に表されます。
@@ -184,9 +188,10 @@ $$
 \end{equation}
 $$
 
-##　価格決定アルゴリズム
+## 価格決定アルゴリズム
 
-このアルゴリズムは価格の均衡解を政策反復法を用いてもとめます。前述の動学BLPの推定結果を用いれば与えられた価格に対してそれぞれの消費者タイプ $r$ の財への需要が反実仮想予測できます。であれば、その価格を調整することで利益を最大化する最適価格を決定をすることができます。
+このアルゴリズムは価格の均衡解を政策反復法を用いてもとめます。前述の動学BLPの推定結果を用いれば与えられた価格に対してそれぞれの消費者タイプ $r$ の財への需要が反実仮想予測できます。であれば、その価格を調整することで利益を最大化する最適価格を決定をすることができます。以下ではJ=1,R=2の場合のアルゴリズムです。
+* [コード(J=1,R=2)](https://github.com/yanoharu/Dynamic-BLP/blob/main/price_optimization_SingleChoiceDoubleSegment.ipynb)
 
 1. $\boldsymbol{S}:\\{ M_1,M_2,\xi \\}$ は状態変数でありG個のグリッド点に分割されます。最適価格政策 $p^{(n)}(\boldsymbol{S})$　と買い控えの価値関数 $V^{r(n,k)}_0,\space \text{for} \space r=1,2$　の初期値を設定します。
 
